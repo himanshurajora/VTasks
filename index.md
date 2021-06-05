@@ -1,37 +1,42 @@
 ## VTasks
 
-You can use the [editor on GitHub](https://github.com/himanshurajora/VTasks/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is an chrome extension to use as a simple to do
+list right into the browser.
+No login no session and no corporate stuff this is just your simple to do list that will help you to remember that what next you want to to in your browser or computer.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+If you like it then consider following me on github url is just below: 
+https://github.com/himanshurajora
 
-### Markdown
+### How to use it
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+If have developed any extensions before then
+you might be familiar with the process of loading an 
+extension into your browser.
+If not then?
+Don't worry I am explaining the process to you below
 
 ```markdown
-Syntax highlighted code block
+# Steps
+1. Download this repository
+2. Extract the zip file
+3. Open any chromium based browser eg. Brave, Chrome, Edge etc
+4. Go to settings
+5. Go to Extensions
+5. Click Manage Extensions
+6. Turn on developer mode
+7. Click "Load Unpacked"
+8. Select the extracted repository 
+9. Pin this extension
+10. Start Using
+Done 👍🏻
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/himanshurajora/VTasks/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+***
+Made By VCF Devs
+<br>
+Dev. Name : Himanshu Jangid 
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
