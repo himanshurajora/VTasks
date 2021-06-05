@@ -1,1 +1,4 @@
 theme: jekyll-theme-tactile
+title: VTasks
+description: To Do List 
+show_downloads: true
