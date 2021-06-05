@@ -3,7 +3,7 @@
 This is an chrome extension to use as a simple to do
 list right into the browser.
 No login no session and no corporate stuff this is just your simple to do list that will help you to remember that what next you want to to in your browser or computer.
-
+ 
 If you like it then consider following me on github url is just below: 
 https://github.com/himanshurajora
 
