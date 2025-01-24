@@ -1,33 +1,62 @@
-var taskList = document.getElementById("taskList");
-var form = document.getElementById("form");
-var tasks = [];
-
+const taskList = document.getElementById("taskList");
+const form = document.getElementById("form");
+let tasks = [];
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (document.getElementsByClassName("at")[0].value != "") {
-        tasks.push(document.getElementsByClassName("at")[0].value)
+    const input = document.getElementsByClassName("at")[0];
+    const value = input.value.trim();
+    
+    if (value !== "") {
+        tasks.push(value);
+        input.value = "";
         render();
+        
+        // Add animation to the newest task
+        const newestTask = taskList.firstChild;
+        newestTask.style.opacity = "0";
+        newestTask.style.transform = "translateY(-10px)";
+        requestAnimationFrame(() => {
+            newestTask.style.transition = "all 0.3s ease";
+            newestTask.style.opacity = "1";
+            newestTask.style.transform = "translateY(0)";
+        });
     }
-    document.getElementsByClassName("at")[0].value = "";
-})
-
+});
 
 function render() {
-    console.log("render called")
     taskList.innerHTML = "";
     tasks.forEach((val, index) => {
-        var item = document.createElement("li");
-        var data;
-        if (val.slice(0, 4) == "http") {
-            data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp; <a href='" + val + "'><abbr title='Ctrl + Click to open the link'>" + val + "</abbr></a></p>"
+        const item = document.createElement("li");
+        let data;
+        
+        if (isValidUrl(val)) {
+            data = `
+                <p><a href="${val}" target="_blank" title="Ctrl + Click to open in new tab">${val}</a></p>
+                <button name="${index}" class="del" title="Delete task">X</button>
+            `;
         } else {
-            data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp;" + val + "</p>"
-        } item.innerHTML = data;
+            data = `
+                <p>${val}</p>
+                <button name="${index}" class="del" title="Delete task">X</button>
+            `;
+        }
+        
+        item.innerHTML = data;
         taskList.prepend(item);
-    })
+    });
+    
     addButtonEvents();
     store();
+}
+
+function isValidUrl(string) {
+    try {
+        new URL(string);
+        return true;
+    } catch (_) {
+        return false;
+    }
 }
 
 function store() {
@@ -38,18 +67,25 @@ function load() {
     chrome.storage.local.get(['tasks'], function (result) {
         if (result.tasks) {
             tasks = result.tasks;
-            render()
+            render();
         }
     });
 }
 
 function addButtonEvents() {
-    var buttons = document.getElementsByClassName("del");
-    for (button of buttons) {
+    const buttons = document.getElementsByClassName("del");
+    Array.from(buttons).forEach(button => {
         button.addEventListener("click", (e) => {
-            remove(e.srcElement.name);
-        })
-    }
+            const li = e.target.parentElement;
+            li.style.transition = "all 0.3s ease";
+            li.style.opacity = "0";
+            li.style.transform = "translateY(-10px)";
+            
+            setTimeout(() => {
+                remove(e.target.getAttribute("name"));
+            }, 300);
+        });
+    });
 }
 
 function remove(index) {
@@ -57,5 +93,5 @@ function remove(index) {
     render();
 }
 
-//initial load and render
+// Initial load and render
 load();

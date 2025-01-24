@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -9,15 +10,63 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            padding: 3px;
+            padding: 16px;
             min-height: 300px;
+            min-width: 300px;
+            background-color: #f8f9fa;
         }
 
-        span {
+        .add {
+            margin-bottom: 16px;
+        }
+
+        form {
             display: flex;
+            gap: 8px;
+        }
+
+        .at {
+            flex: 1;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .at:focus {
+            outline: none;
+            border-color: #228be6;
+            box-shadow: 0 0 0 3px rgba(34, 139, 230, 0.1);
+        }
+
+        .at::placeholder {
+            color: #adb5bd;
+        }
+
+        .ab {
+            border: none;
+            color: white;
+            background-color: #228be6;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .ab:hover {
+            background-color: #1c7ed6;
+        }
+
+        .ab:active {
+            background-color: #1971c2;
         }
 
         ul {
@@ -26,90 +75,87 @@
         }
 
         ul li {
-            padding: 3px 4px;
-            width: 100%;
-            max-width: 220px;
-            overflow: auto;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
+            padding-right: 44px;
         }
-
-        li::-webkit-scrollbar-thumb {
-            height: 4px;
-            width: auto;
-            background-color: rgb(53, 141, 255);
-        }
-
-        li::-webkit-scrollbar-track {
-            background-color: red;
-        }
-
 
         ul li:hover {
-            background-color: rgb(212, 212, 212);
-        }
-
-        .add {
-            margin: 2px 2px;
-        }
-
-        .ab {
-            border: none;
-            color: white;
-            background-color: rgb(11, 137, 255);
-            width: 40px;
-            border-radius: 2px;
-        }
-
-        .ab:hover {
-            background-color: rgb(0, 116, 194);
-        }
-
-        .ab:active {
-            background-color: rgb(0, 73, 184);
-        }
-
-        .at {
-            border: none;
-            padding: 2px 0px;
-            border-bottom: 2px solid rgb(11, 137, 255);
-            ;
-            /* width: 200px; */
-        }
-
-        .at:focus {
-            outline: none;
-
-        }
-
-        button {
-            position: absolute;
-            background-color: rgb(253, 88, 82);
-            border: none;
-            width: 20px;
-            color: white;
-
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         ul li p {
-            display: -webkit-box;
-            max-width: 200px;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #495057;
+            word-break: break-word;
         }
 
+        ul li a {
+            color: #228be6;
+            text-decoration: none;
+        }
 
+        ul li a:hover {
+            text-decoration: underline;
+        }
 
-        button:hover {
-            background-color: rgb(216, 73, 73);
+        .del {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background-color: #fa5252;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            position: absolute;
+            right: 12px;
+            opacity: 0.7;
+        }
+
+        .del:hover {
+            background-color: #e03131;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f3f5;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #adb5bd;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #868e96;
         }
     </style>
     <div class="add">
         <form action="" id="form">
-            <span>
-                <input type="text" class="at" placeholder="Enter Task">
-                <input type="submit" value="+" class="ab">
-            </span>
+            <input type="text" class="at" placeholder="Add a new task...">
+            <button type="submit" class="ab">+</button>
         </form>
     </div>
     <div class="tasks">
