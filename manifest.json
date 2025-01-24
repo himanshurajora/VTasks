@@ -3,6 +3,9 @@
     "discription":"Simple Tasks No Login No Spam",
     "version":"0.1",
     "manifest_version":3,
+    "icons": {
+        "32": "icon32.png"
+      },
     "background":{
         "service_worker":"background.js"
     },
